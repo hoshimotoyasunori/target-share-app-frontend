@@ -7,7 +7,12 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { TextField, Button, CircularProgress } from "@material-ui/core";
 
-import { fetchAsyncGetTargets, fetchAsyncGetComments } from "../target/targetSlice";
+import { 
+  fetchAsyncGetTargets, 
+  fetchAsyncGetComments, 
+  fetchAsyncGetMyTarget,
+  // selectMyTarget
+} from "../target/targetSlice";
 
 import {
   // useSelect
@@ -80,6 +85,7 @@ const Auth: React.FC = () => {
               await dispatch(fetchAsyncGetTargets());
               await dispatch(fetchAsyncGetComments());
               await dispatch(fetchAsyncGetMyProf());
+              await dispatch(fetchAsyncGetMyTarget());
             }
             await dispatch(fetchCredEnd());
             await dispatch(resetOpenSignUp());
@@ -103,7 +109,7 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  <h1 className={styles.auth_title}>SNS clone</h1>
+                  <h1 className={styles.auth_title}>Target App</h1>
                   <br />
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}
@@ -181,6 +187,9 @@ const Auth: React.FC = () => {
               await dispatch(fetchAsyncGetTargets());
               await dispatch(fetchAsyncGetComments());
               await dispatch(fetchAsyncGetMyProf());
+              await dispatch(fetchAsyncGetMyTarget());
+            }else{
+              alert("ログインできませんでした！")
             }
             await dispatch(fetchCredEnd());
             await dispatch(resetOpenSignIn());
@@ -204,7 +213,7 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  <h1 className={styles.auth_title}>SNS clone</h1>
+                  <h1 className={styles.auth_title}>Target App</h1>
                   <br />
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}

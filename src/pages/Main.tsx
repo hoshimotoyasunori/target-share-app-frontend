@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "../features/core/Core.module.css"
+import styles from "../function/core/Core.module.css"
 import { useSelector } from "react-redux";
 
 import {Grid} from "@material-ui/core";
 
-import {selectProfile} from "../features/auth/authSlice";
-import {selectTargets} from "../features/target/targetSlice";
+import {selectProfile} from "../function/auth/authSlice";
+import {selectTargets} from "../function/target/targetSlice";
 
-import Target from "../features/target/Target";
+import Target from "../function/target/Target";
 
 
 const Main: React.FC = () => {

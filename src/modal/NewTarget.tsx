@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch } from "../../app/store";
+import { AppDispatch } from "../app/store";
 
 
-import styles from "./Core.module.css"
+import styles from "../function/core/Core.module.css";
 
 
 import {
+    // useSelect
     selectOpenNewTarget,
+    //Reducer
     resetOpenNewTarget,
+    //非同期
     fetchTargetStart,
     fetchTargetEnd,
     fetchAsyncNewTarget,
-} from "../target/targetSlice";
+} from "../function/target/targetSlice";
 
 
 import { Button, TextField } from "@material-ui/core";

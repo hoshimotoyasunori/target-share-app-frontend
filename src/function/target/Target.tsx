@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import styles from "./Target.module.css";
 
-
 import { makeStyles } from "@material-ui/core/styles";
 import { Avatar, Divider, Checkbox } from "@material-ui/core";
 import { Favorite, FavoriteBorder } from "@material-ui/icons";
-
 import AvatarGroup from "@material-ui/lab/AvatarGroup";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -14,12 +12,13 @@ import { AppDispatch } from "../../app/store";
 import { selectProfiles } from "../auth/authSlice";
 
 import {
+  // useSelect
   selectComments,
+  //非同期
   fetchTargetStart,
   fetchTargetEnd,
   fetchAsyncUserComment,
   fetchAsyncPatchLiked,
-  // selectTodo1s,
 } from "./targetSlice";
 
 import { PROPS_TARGET } from "../types";

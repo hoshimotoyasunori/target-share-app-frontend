@@ -5,31 +5,37 @@ import { AppDispatch } from "../../app/store";
 import {Button,CircularProgress} from "@material-ui/core";
 
 import {
-  editNickName,
+  // useSelect
   selectProfile,
   selectIsLoadingAuth,
+  //Reducer
   setOpenSignIn,
   resetOpenSignIn,
   setOpenSignUp,
   resetOpenSignUp,
-  resetOpenProfile,
   setOpenMypage,
   resetOpenMypage,
+  resetOpenProfile,
+  editNickName,
+  //非同期
   fetchAsyncGetMyProf,
   fetchAsyncGetProfs,
 } from "../auth/authSlice";
 
 import {
+  // useSelect
   selectIsLoadingTarget,
+  //Reducer
   resetOpenNewTarget,
+  //非同期
   fetchAsyncGetMyTarget,
   fetchAsyncGetTargets,
   fetchAsyncGetComments,
 } from "../target/targetSlice";
 
 import Auth from "../auth/Auth";
-import EditProfile from "./EditProfile";
-import NewTarget from "./NewTarget";
+// import EditProfile from "./modal/EditProfile";
+// import NewTarget from "./modal/NewTarget";
 
 
 const Header: React.FC = () => {
@@ -38,19 +44,19 @@ const Header: React.FC = () => {
   const isLoadingTarget = useSelector(selectIsLoadingTarget);
   const isLoadingAuth = useSelector(selectIsLoadingAuth);
 
-
   useEffect(() => {
     const fetchBootLoader = async () => {
       if (localStorage.localJWT) {
         dispatch(resetOpenSignIn());
         const result = await dispatch(fetchAsyncGetMyProf());
         if (fetchAsyncGetMyProf.rejected.match(result)) {
-          dispatch(setOpenSignIn());
+          // dispatch(setOpenSignIn());
           return null;
         }
         await dispatch(fetchAsyncGetTargets());
-        await dispatch(fetchAsyncGetMyTarget());
         await dispatch(fetchAsyncGetProfs());
+        // await dispatch(fetchAsyncGetMyProf());
+        await dispatch(fetchAsyncGetMyTarget());
         await dispatch(fetchAsyncGetComments());
       }
     };
@@ -60,11 +66,9 @@ const Header: React.FC = () => {
   return (
     <div>
       <Auth />
-      <EditProfile />
-      <NewTarget />
 
       <div className={styles.core_header}>
-        <h1 className={styles.core_title}>Target App</h1>
+        <h1 className={styles.core_title}>Target</h1>
         {profile?.nickName ? (
           <>
             <div className={styles.core_logout}>
@@ -89,8 +93,8 @@ const Header: React.FC = () => {
                   dispatch(editNickName(""));
                   dispatch(resetOpenProfile());
                   dispatch(resetOpenNewTarget());
-                  dispatch(setOpenSignIn());
-                  dispatch(resetOpenMypage());
+                  // dispatch(resetOpenMypage());
+                  alert("logoutしました！")
                 }}
               >
                 Logout

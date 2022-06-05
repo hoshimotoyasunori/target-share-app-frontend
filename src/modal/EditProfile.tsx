@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import styles from "./Core.module.css";
+
+import styles from "../function/core/Core.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch } from "../../app/store";
+import { AppDispatch } from "../app/store";
 
-import { File } from "../types";
+import { File } from "../function/types";
 
 import {
-  editNickName,
+  // useSelect
   selectProfile,
   selectOpenProfile,
+  //Reducer
   resetOpenProfile,
+  editNickName,
+  //非同期
   fetchCredStart,
   fetchCredEnd,
   fetchAsyncUpdateProf,
-} from "../auth/authSlice";
+} from "../function/auth/authSlice";
 
 import { Button, TextField, IconButton } from "@material-ui/core";
 import { MdAddAPhoto } from "react-icons/md";

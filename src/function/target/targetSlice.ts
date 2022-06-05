@@ -15,18 +15,18 @@ export const fetchAsyncGetTargets = createAsyncThunk(
         Authorization: `JWT ${localStorage.localJWT}`,
       },
     });
-    console.log(res)
+    // console.log(res)
   return res.data;
 });
 export const fetchAsyncGetMyTarget = createAsyncThunk(
-  "target/get",
+  "mytarget/get",
   async () => {
     const res = await axios.get(apiUrlMyTarget, {
       headers: {
         Authorization: `JWT ${localStorage.localJWT}`,
       },
     });
-    console.log(res)
+    // console.log(res)
   return res.data;
 });
 
@@ -42,8 +42,8 @@ export const fetchAsyncNewTarget = createAsyncThunk(
     return res.data;
   }
 );
-export const fetchAsyncUpdateTarget = createAsyncThunk(
-    "target/put",
+export const fetchAsyncUpdateMyTarget = createAsyncThunk(
+    "mytarget/put",
     async (target: PROPS_TARGET) => {
         const res = await axios.put(
             `${apiUrlTarget}/${target.targetId}/`,
@@ -125,7 +125,7 @@ export const targetSlice = createSlice({
   initialState: {
     isLoadingTarget: false,
     openNewTarget: false,
-    openTarget:false,
+    openEditMyTarget:false,
     mytarget: [
       {
         id: 0,
@@ -313,25 +313,29 @@ export const targetSlice = createSlice({
       state.openNewTarget = false;
     },
     // Target編集のアクション
-    setOpenTarget(state){
-        state.openTarget=true;
+    setOpenEditMyTarget(state){
+        state.openEditMyTarget=true;
     },
-    resetOpenTarget(state){
-        state.openTarget=false;
+    resetOpenEditMyTarget(state){
+        state.openEditMyTarget=false;
     },
+    //  // ニックネーム編集
+    //  editTarget(state,action){
+    //   state.mytarget.main = action.payload;
+    // },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchAsyncGetMyTarget.fulfilled, (state, action) => {
-        return{
-          ...state,
-          mytarget : action.payload,
-        };
-    });
     builder.addCase(fetchAsyncGetTargets.fulfilled, (state, action) => {
       return {
         ...state,
         targets: action.payload,
       };
+    });
+    builder.addCase(fetchAsyncGetMyTarget.fulfilled, (state, action) => {
+        return{
+          ...state,
+          mytarget : action.payload,
+        };
     });
     builder.addCase(fetchAsyncNewTarget.fulfilled, (state, action) => {
       return {
@@ -359,13 +363,13 @@ export const targetSlice = createSlice({
         ),
       };
     });
-    // builder.addCase(fetchAsyncUpdateTarget.fulfilled, (state, action) => {
-    //   state.mytarget = action.payload;
-    //   // SPA実現するために更新したデータを即反映させるためのもの
-    //   state.targets = state.targets.map((tar) =>
-    //       tar.id === action.payload.id ? action.payload : tar
-    //   );
-  //  });
+    builder.addCase(fetchAsyncUpdateMyTarget.fulfilled, (state, action) => {
+      state.mytarget = action.payload;
+      // SPA実現するために更新したデータを即反映させるためのもの
+      state.targets = state.targets.map((tar) =>
+          tar.id === action.payload.id ? action.payload : tar
+      );
+   });
   },
 });
 
@@ -374,13 +378,14 @@ export const {
   fetchTargetEnd,
   setOpenNewTarget,
   resetOpenNewTarget,
-  setOpenTarget,
-  resetOpenTarget,
+  setOpenEditMyTarget,
+  resetOpenEditMyTarget,
 } = targetSlice.actions;
 
 export const selectIsLoadingTarget = (state: RootState) => state.target.isLoadingTarget;
 export const selectOpenNewTarget = (state: RootState) => state.target.openNewTarget;
-export const selectTarget = (state: RootState) => state.target.mytarget;
+export const selectOpenEditMyTarget = (state: RootState) => state.target.openEditMyTarget;
+export const selectMyTarget = (state: RootState) => state.target.mytarget;
 export const selectTargets = (state: RootState) => state.target.targets;
 export const selectComments = (state: RootState) => state.target.comments;
 

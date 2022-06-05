@@ -1,10 +1,9 @@
 import React from "react";
-import styles from "./Target.module.css";
-
+import styles from "./Mytarget.module.css";
 
 import { Avatar } from "@material-ui/core";
-
 import { useSelector } from "react-redux";
+
 import { selectProfile } from "../auth/authSlice";
 
 import { PROPS_TARGET } from "../types";
@@ -31,11 +30,12 @@ const Mytarget: React.FC<PROPS_TARGET> = ({
 
   if (main) {
     return (
-      <div className={styles.post}>
-        <div className={styles.post_header}>
-          <Avatar className={styles.post_avatar} src={profile?.img} />
+      <div className={styles.prof_container}>
+        <div className={styles.prof_header}>
+          <Avatar className={styles.prof_avatar} src={profile?.img} />
           <h3>{main}</h3><p>　"{created_at}"　</p>
         </div>
+
         <div className={styles.container} >
           <div className={styles.box}>
             <div className={styles.card}>

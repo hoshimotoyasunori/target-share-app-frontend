@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../function/core/Core.module.css"
+import styles from "./Main.module.css"
 import { useSelector } from "react-redux";
 
 import {Grid} from "@material-ui/core";
@@ -21,9 +21,9 @@ const Main: React.FC = () => {
                     .slice(0)
                     .reverse()
                     .map((target) => (
-                    <Grid key={target.id} item xs={12} md={4}>
+                    <Grid key={target.id} item xs={12} md={6}>
                         <Target
-                            targetId={target.id}
+                            id={target.id}
                             loginId={profile.userProfile}
                             userTarget={target.userTarget}
                             main={target.main}

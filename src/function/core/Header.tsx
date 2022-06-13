@@ -9,10 +9,7 @@ import {
   selectProfile,
   selectIsLoadingAuth,
   //Reducer
-  setOpenSignIn,
   resetOpenSignIn,
-  setOpenSignUp,
-  resetOpenSignUp,
   setOpenMypage,
   resetOpenMypage,
   resetOpenProfile,
@@ -27,6 +24,7 @@ import {
   selectIsLoadingTarget,
   //Reducer
   resetOpenNewTarget,
+  resetOpenEditMyTarget,
   //非同期
   fetchAsyncGetMyTarget,
   fetchAsyncGetTargets,
@@ -34,8 +32,6 @@ import {
 } from "../target/targetSlice";
 
 import Auth from "../auth/Auth";
-// import EditProfile from "./modal/EditProfile";
-// import NewTarget from "./modal/NewTarget";
 
 
 const Header: React.FC = () => {
@@ -69,20 +65,22 @@ const Header: React.FC = () => {
 
       <div className={styles.core_header}>
         <h1 className={styles.core_title}>Target</h1>
-        {profile?.nickName ? (
+        {profile?.nickName &&
           <>
             <div className={styles.core_logout}>
               {(isLoadingTarget || isLoadingAuth) && <CircularProgress />}
               <Button
                 onClick={() => {
                   dispatch(resetOpenMypage());
+                  dispatch(resetOpenEditMyTarget());
                 }}
               >
-                <p>Target</p>
+                <p>Home</p>
               </Button>
               <Button
                 onClick={() => {
                   dispatch(setOpenMypage());
+                  dispatch(resetOpenEditMyTarget());
                 }}
               >
                 <p>Mypage</p>
@@ -93,34 +91,16 @@ const Header: React.FC = () => {
                   dispatch(editNickName(""));
                   dispatch(resetOpenProfile());
                   dispatch(resetOpenNewTarget());
+                  dispatch(resetOpenEditMyTarget());
                   // dispatch(resetOpenMypage());
                   alert("logoutしました！")
                 }}
               >
-                Logout
+                <p>Logout</p>
               </Button>
             </div>
           </>
-        ) : (
-          <div>
-            <Button
-              onClick={() => {
-                dispatch(setOpenSignIn());
-                dispatch(resetOpenSignUp());
-              }}
-            >
-              LogIn
-            </Button>
-            <Button
-              onClick={() => {
-                dispatch(setOpenSignUp());
-                dispatch(resetOpenSignIn());
-              }}
-            >
-              SignUp
-            </Button>
-          </div>
-        )}
+        }
       </div>
     </div>
   );

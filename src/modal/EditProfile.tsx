@@ -68,7 +68,7 @@ const EditProfile: React.FC = () => {
         style={customStyles}
       >
         <form className={styles.core_signUp}>
-          <h1 className={styles.core_title}>SNS clone</h1>
+          <h1 className={styles.core_title}>Edit Profile</h1>
 
           <br />
           <TextField

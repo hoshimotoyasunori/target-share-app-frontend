@@ -27,12 +27,12 @@ const useStyles = makeStyles((theme) => ({
   small: {
     width: theme.spacing(3),
     height: theme.spacing(3),
-    marginRight: theme.spacing(1),
+    margin: theme.spacing(1),
   },
 }));
 
 const Target: React.FC<PROPS_TARGET> = ({
-    targetId,
+    id,
     loginId,
     userTarget,
     main,
@@ -54,7 +54,7 @@ const Target: React.FC<PROPS_TARGET> = ({
   const comments = useSelector(selectComments);
   const [text, setText] = useState("");
   const commentsOnUser = comments.filter((com) => {
-    return com.target === targetId;
+    return com.target === id;
   });
   const prof = profiles.filter((prof) => {
     return prof.userProfile === userTarget;
@@ -62,7 +62,7 @@ const Target: React.FC<PROPS_TARGET> = ({
 
   const postComment = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    const packet = { text: text, target: targetId };
+    const packet = { text: text, target: id };
     await dispatch(fetchTargetStart());
     await dispatch(fetchAsyncUserComment(packet));
     await dispatch(fetchTargetEnd());
@@ -71,7 +71,7 @@ const Target: React.FC<PROPS_TARGET> = ({
 
   const handlerLiked = async () => {
     const packet = {
-      id: targetId,
+      id: id,
       main: main,
       current: liked,
       new: loginId,
@@ -92,19 +92,19 @@ const Target: React.FC<PROPS_TARGET> = ({
         <div className={styles.container} >
           <div className={styles.card}>
             <div className={styles.itembox}>
-              <p className={styles.atom}>{sub1}</p>
-              <p className={styles.atom}>{sub2}</p>
-              <p className={styles.atom}>{sub3}</p>
+              <p className={`${styles.atom} ${styles.box1}`}>{sub1}</p>
+              <p className={`${styles.atom} ${styles.box2}`}>{sub2}</p>
+              <p className={`${styles.atom} ${styles.box3}`}>{sub3}</p>
             </div>
             <div className={styles.itembox}>
-              <p className={styles.atom}>{sub4}</p>
-              <p className={styles.atom}>{main}</p>
-              <p className={styles.atom}>{sub6}</p>
+              <p className={`${styles.atom} ${styles.box4}`}>{sub4}</p>
+              <p className={`${styles.atom} ${styles.box5}`}>{main}</p>
+              <p className={`${styles.atom} ${styles.box6}`}>{sub6}</p>
             </div>
             <div className={styles.itembox}>
-              <p className={styles.atom}>{sub7}</p>
-              <p className={styles.atom}>{sub8}</p>
-              <p className={styles.atom}>{sub9}</p>
+              <p className={`${styles.atom} ${styles.box7}`}>{sub7}</p>
+              <p className={`${styles.atom} ${styles.box8}`}>{sub8}</p>
+              <p className={`${styles.atom} ${styles.box9}`}>{sub9}</p>
             </div>
           </div>
         </div>
@@ -130,6 +130,23 @@ const Target: React.FC<PROPS_TARGET> = ({
         </h4>
 
         <Divider />
+        <form className={styles.post_commentBox}>
+          <input
+            className={styles.post_input}
+            type="text"
+            placeholder="add a comment"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          <button
+            disabled={!text.length}
+            className={styles.post_button}
+            type="submit"
+            onClick={postComment}
+          >
+            Post
+          </button>
+        </form>
         <div className={styles.post_comments}>
           {commentsOnUser.map((comment) => (
             <div key={comment.id} className={styles.post_comment}>
@@ -154,24 +171,6 @@ const Target: React.FC<PROPS_TARGET> = ({
             </div>
           ))}
         </div>
-
-        <form className={styles.post_commentBox}>
-          <input
-            className={styles.post_input}
-            type="text"
-            placeholder="add a comment"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          <button
-            disabled={!text.length}
-            className={styles.post_button}
-            type="submit"
-            onClick={postComment}
-          >
-            Post
-          </button>
-        </form>
       </div>
     );
   }

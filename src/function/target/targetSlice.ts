@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import axios from "axios";
-import { PROPS_NEWTARGET, PROPS_TARGET, PROPS_LIKED, PROPS_COMMENT } from "../types";
+import { PROPS_NEWTARGET, PROPS_EDITTARGET, PROPS_LIKED, PROPS_COMMENT } from "../types";
 
 const apiUrlTarget = `${process.env.REACT_APP_DEV_API_URL}api/target/`;
 const apiUrlMyTarget = `${process.env.REACT_APP_DEV_API_URL}api/mytarget/`;
@@ -43,16 +43,30 @@ export const fetchAsyncNewTarget = createAsyncThunk(
   }
 );
 export const fetchAsyncUpdateMyTarget = createAsyncThunk(
-    "mytarget/put",
-    async (target: PROPS_TARGET) => {
+    "target/put",
+    async (target: PROPS_EDITTARGET) => {
         const res = await axios.put(
-            `${apiUrlTarget}/${target.targetId}/`,
+            `${apiUrlTarget}${target.id}/`,
             target,
             {
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `JWT ${localStorage.localJWT}`,
-            },
+              headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `JWT ${localStorage.localJWT}`,
+              },
+            }
+        );
+        return res.data;
+    }
+);
+export const fetchAsyncDeleteMyTarget = createAsyncThunk(
+    "target/delete",
+    async (target: PROPS_EDITTARGET) => {
+        const res = await axios.delete(
+            `${apiUrlTarget}${target.id}`,
+            {
+              headers: {
+                  Authorization: `JWT ${localStorage.localJWT}`,
+              },
             }
         );
         return res.data;
@@ -126,6 +140,19 @@ export const targetSlice = createSlice({
     isLoadingTarget: false,
     openNewTarget: false,
     openEditMyTarget:false,
+    edit_mytarget:{
+      id: 0,
+      main: "",
+      sub1:"",sub2:"",sub3:"",sub4:"",sub6:"",sub7:"",sub8:"",sub9:"",
+      todo1_1:"",todo1_2:"",todo1_3:"",todo1_4:"",todo1_6:"",todo1_7:"",todo1_8:"",todo1_9:"",
+      todo2_1:"",todo2_2:"",todo2_3:"",todo2_4:"",todo2_6:"",todo2_7:"",todo2_8:"",todo2_9:"",
+      todo3_1:"",todo3_2:"",todo3_3:"",todo3_4:"",todo3_6:"",todo3_7:"",todo3_8:"",todo3_9:"",
+      todo4_1:"",todo4_2:"",todo4_3:"",todo4_4:"",todo4_6:"",todo4_7:"",todo4_8:"",todo4_9:"",
+      todo6_1:"",todo6_2:"",todo6_3:"",todo6_4:"",todo6_6:"",todo6_7:"",todo6_8:"",todo6_9:"",
+      todo7_1:"",todo7_2:"",todo7_3:"",todo7_4:"",todo7_6:"",todo7_7:"",todo7_8:"",todo7_9:"",
+      todo8_1:"",todo8_2:"",todo8_3:"",todo8_4:"",todo8_6:"",todo8_7:"",todo8_8:"",todo8_9:"",
+      todo9_1:"",todo9_2:"",todo9_3:"",todo9_4:"",todo9_6:"",todo9_7:"",todo9_8:"",todo9_9:"",
+    },
     mytarget: [
       {
         id: 0,
@@ -133,78 +160,15 @@ export const targetSlice = createSlice({
         userTarget: 0,
         created_at: "",
         liked: [0],
-        sub1:"",
-        sub2:"",
-        sub3:"",
-        sub4:"",
-        sub6:"",
-        sub7:"",
-        sub8:"",
-        sub9:"",
-        todo1_1:"",
-        todo1_2:"",
-        todo1_3:"",
-        todo1_4:"",
-        todo1_6:"",
-        todo1_7:"",
-        todo1_8:"",
-        todo1_9:"",
-        todo2_1:"",
-        todo2_2:"",
-        todo2_3:"",
-        todo2_4:"",
-        todo2_6:"",
-        todo2_7:"",
-        todo2_8:"",
-        todo2_9:"",
-        todo3_1:"",
-        todo3_2:"",
-        todo3_3:"",
-        todo3_4:"",
-        todo3_6:"",
-        todo3_7:"",
-        todo3_8:"",
-        todo3_9:"",
-        todo4_1:"",
-        todo4_2:"",
-        todo4_3:"",
-        todo4_4:"",
-        todo4_6:"",
-        todo4_7:"",
-        todo4_8:"",
-        todo4_9:"",
-        todo6_1:"",
-        todo6_2:"",
-        todo6_3:"",
-        todo6_4:"",
-        todo6_6:"",
-        todo6_7:"",
-        todo6_8:"",
-        todo6_9:"",
-        todo7_1:"",
-        todo7_2:"",
-        todo7_3:"",
-        todo7_4:"",
-        todo7_6:"",
-        todo7_7:"",
-        todo7_8:"",
-        todo7_9:"",
-        todo8_1:"",
-        todo8_2:"",
-        todo8_3:"",
-        todo8_4:"",
-        todo8_6:"",
-        todo8_7:"",
-        todo8_8:"",
-        todo8_9:"",
-        todo9_1:"",
-        todo9_2:"",
-        todo9_3:"",
-        todo9_4:"",
-        todo9_6:"",
-        todo9_7:"",
-        todo9_8:"",
-        todo9_9:"",
+        sub1:"",sub2:"",sub3:"",sub4:"",sub6:"",sub7:"",sub8:"",sub9:"",
+        todo1_1:"",todo1_2:"",todo1_3:"",todo1_4:"",todo1_6:"",todo1_7:"",todo1_8:"",todo1_9:"",
+        todo2_1:"",todo2_2:"",todo2_3:"",todo2_4:"",todo2_6:"",todo2_7:"",todo2_8:"",todo2_9:"",
+        todo3_1:"",todo3_2:"",todo3_3:"",todo3_4:"",todo3_6:"",todo3_7:"",todo3_8:"",todo3_9:"",
+        todo4_1:"",todo4_2:"",todo4_3:"",todo4_4:"",todo4_6:"",todo4_7:"",todo4_8:"",todo4_9:"",
+        todo6_1:"",todo6_2:"",todo6_3:"",todo6_4:"",todo6_6:"",todo6_7:"",todo6_8:"",todo6_9:"",
+        todo7_1:"",todo7_2:"",todo7_3:"",todo7_4:"",todo7_6:"",todo7_7:"",todo7_8:"",todo7_9:"",
+        todo8_1:"",todo8_2:"",todo8_3:"",todo8_4:"",todo8_6:"",todo8_7:"",todo8_8:"",todo8_9:"",
+        todo9_1:"",todo9_2:"",todo9_3:"",todo9_4:"",todo9_6:"",todo9_7:"",todo9_8:"",todo9_9:"",
       },
     ],
     targets: [
@@ -214,78 +178,15 @@ export const targetSlice = createSlice({
         userTarget: 0,
         created_at: "",
         liked: [0],
-        sub1:"",
-        sub2:"",
-        sub3:"",
-        sub4:"",
-        sub6:"",
-        sub7:"",
-        sub8:"",
-        sub9:"",
-        todo1_1:"",
-        todo1_2:"",
-        todo1_3:"",
-        todo1_4:"",
-        todo1_6:"",
-        todo1_7:"",
-        todo1_8:"",
-        todo1_9:"",
-        todo2_1:"",
-        todo2_2:"",
-        todo2_3:"",
-        todo2_4:"",
-        todo2_6:"",
-        todo2_7:"",
-        todo2_8:"",
-        todo2_9:"",
-        todo3_1:"",
-        todo3_2:"",
-        todo3_3:"",
-        todo3_4:"",
-        todo3_6:"",
-        todo3_7:"",
-        todo3_8:"",
-        todo3_9:"",
-        todo4_1:"",
-        todo4_2:"",
-        todo4_3:"",
-        todo4_4:"",
-        todo4_6:"",
-        todo4_7:"",
-        todo4_8:"",
-        todo4_9:"",
-        todo6_1:"",
-        todo6_2:"",
-        todo6_3:"",
-        todo6_4:"",
-        todo6_6:"",
-        todo6_7:"",
-        todo6_8:"",
-        todo6_9:"",
-        todo7_1:"",
-        todo7_2:"",
-        todo7_3:"",
-        todo7_4:"",
-        todo7_6:"",
-        todo7_7:"",
-        todo7_8:"",
-        todo7_9:"",
-        todo8_1:"",
-        todo8_2:"",
-        todo8_3:"",
-        todo8_4:"",
-        todo8_6:"",
-        todo8_7:"",
-        todo8_8:"",
-        todo8_9:"",
-        todo9_1:"",
-        todo9_2:"",
-        todo9_3:"",
-        todo9_4:"",
-        todo9_6:"",
-        todo9_7:"",
-        todo9_8:"",
-        todo9_9:"",
+        sub1:"",sub2:"",sub3:"",sub4:"",sub6:"",sub7:"",sub8:"",sub9:"",
+        todo1_1:"",todo1_2:"",todo1_3:"",todo1_4:"",todo1_6:"",todo1_7:"",todo1_8:"",todo1_9:"",
+        todo2_1:"",todo2_2:"",todo2_3:"",todo2_4:"",todo2_6:"",todo2_7:"",todo2_8:"",todo2_9:"",
+        todo3_1:"",todo3_2:"",todo3_3:"",todo3_4:"",todo3_6:"",todo3_7:"",todo3_8:"",todo3_9:"",
+        todo4_1:"",todo4_2:"",todo4_3:"",todo4_4:"",todo4_6:"",todo4_7:"",todo4_8:"",todo4_9:"",
+        todo6_1:"",todo6_2:"",todo6_3:"",todo6_4:"",todo6_6:"",todo6_7:"",todo6_8:"",todo6_9:"",
+        todo7_1:"",todo7_2:"",todo7_3:"",todo7_4:"",todo7_6:"",todo7_7:"",todo7_8:"",todo7_9:"",
+        todo8_1:"",todo8_2:"",todo8_3:"",todo8_4:"",todo8_6:"",todo8_7:"",todo8_8:"",todo8_9:"",
+        todo9_1:"",todo9_2:"",todo9_3:"",todo9_4:"",todo9_6:"",todo9_7:"",todo9_8:"",todo9_9:"",
       },
     ],
     comments: [
@@ -314,15 +215,14 @@ export const targetSlice = createSlice({
     },
     // Target編集のアクション
     setOpenEditMyTarget(state){
-        state.openEditMyTarget=true;
+      state.openEditMyTarget=true;
     },
     resetOpenEditMyTarget(state){
-        state.openEditMyTarget=false;
+      state.openEditMyTarget=false;
     },
-    //  // ニックネーム編集
-    //  editTarget(state,action){
-    //   state.mytarget.main = action.payload;
-    // },
+    selectEditMyTarget(state,action){
+      state.edit_mytarget = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAsyncGetTargets.fulfilled, (state, action) => {
@@ -341,6 +241,7 @@ export const targetSlice = createSlice({
       return {
         ...state,
         targets: [...state.targets, action.payload],
+        mytarget:[...state.mytarget,action.payload],
       };
     });
     builder.addCase(fetchAsyncGetComments.fulfilled, (state, action) => {
@@ -364,12 +265,22 @@ export const targetSlice = createSlice({
       };
     });
     builder.addCase(fetchAsyncUpdateMyTarget.fulfilled, (state, action) => {
-      state.mytarget = action.payload;
-      // SPA実現するために更新したデータを即反映させるためのもの
-      state.targets = state.targets.map((tar) =>
-          tar.id === action.payload.id ? action.payload : tar
+      state.edit_mytarget = action.payload;
+      state.mytarget = state.mytarget.map((tar) =>
+        tar.id === action.payload.id ? action.payload : tar
       );
-   });
+      state.targets = state.targets.map((tar) =>
+        tar.id === action.payload.id ? action.payload : tar
+      );
+    });
+    // builder.addCase(fetchAsyncDeleteMyTarget.fulfilled, (state,action) => {
+    //   return {
+    //     ...state,
+    //     targets: state.targets.map((target) =>
+    //       target.id === action.payload.id ? action.payload : target
+    //     ),
+    //   };
+    // })
   },
 });
 
@@ -380,6 +291,17 @@ export const {
   resetOpenNewTarget,
   setOpenEditMyTarget,
   resetOpenEditMyTarget,
+  selectEditMyTarget,
+  // editMain,
+  // editSub1,editSub2,editSub3,editSub4,editSub6,editSub7,editSub8,editSub9,
+  // editTodo1_1,editTodo1_2,editTodo1_3,editTodo1_4,editTodo1_6,editTodo1_7,editTodo1_8,editTodo1_9,
+  // editTodo2_1,editTodo2_2,editTodo2_3,editTodo2_4,editTodo2_6,editTodo2_7,editTodo2_8,editTodo2_9,
+  // editTodo3_1,editTodo3_2,editTodo3_3,editTodo3_4,editTodo3_6,editTodo3_7,editTodo3_8,editTodo3_9,
+  // editTodo4_1,editTodo4_2,editTodo4_3,editTodo4_4,editTodo4_6,editTodo4_7,editTodo4_8,editTodo4_9,
+  // editTodo6_1,editTodo6_2,editTodo6_3,editTodo6_4,editTodo6_6,editTodo6_7,editTodo6_8,editTodo6_9,
+  // editTodo7_1,editTodo7_2,editTodo7_3,editTodo7_4,editTodo7_6,editTodo7_7,editTodo7_8,editTodo7_9,
+  // editTodo8_1,editTodo8_2,editTodo8_3,editTodo8_4,editTodo8_6,editTodo8_7,editTodo8_8,editTodo8_9,
+  // editTodo9_1,editTodo9_2,editTodo9_3,editTodo9_4,editTodo9_6,editTodo9_7,editTodo9_8,editTodo9_9,
 } = targetSlice.actions;
 
 export const selectIsLoadingTarget = (state: RootState) => state.target.isLoadingTarget;
@@ -388,5 +310,7 @@ export const selectOpenEditMyTarget = (state: RootState) => state.target.openEdi
 export const selectMyTarget = (state: RootState) => state.target.mytarget;
 export const selectTargets = (state: RootState) => state.target.targets;
 export const selectComments = (state: RootState) => state.target.comments;
+export const selectEditTarget = (state: RootState) => state.target.edit_mytarget;
+
 
 export default targetSlice.reducer;

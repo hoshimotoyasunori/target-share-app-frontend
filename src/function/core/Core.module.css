@@ -33,7 +33,9 @@ p{
 }
 .main{
   padding-top: 80px;
-  background-color: #FFFFFF;
+  background-image: url(../../public/cloud.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .core_btnModal {
   background-color: transparent;

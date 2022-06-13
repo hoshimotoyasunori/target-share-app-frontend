@@ -6,8 +6,10 @@ import {Button,CircularProgress} from "@material-ui/core";
 
 import {
   // useSelect
-  selectProfile,
+  // selectProfile,
   selectIsLoadingAuth,
+  selectIsLoggedIn,
+  resetIsLoggedIn,
   //Reducer
   resetOpenSignIn,
   setOpenMypage,
@@ -36,9 +38,10 @@ import Auth from "../auth/Auth";
 
 const Header: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
-  const profile = useSelector(selectProfile);
+  // const profile = useSelector(selectProfile);
   const isLoadingTarget = useSelector(selectIsLoadingTarget);
   const isLoadingAuth = useSelector(selectIsLoadingAuth);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     const fetchBootLoader = async () => {
@@ -65,7 +68,7 @@ const Header: React.FC = () => {
 
       <div className={styles.core_header}>
         <h1 className={styles.core_title}>Target</h1>
-        {profile?.nickName &&
+        {isLoggedIn &&
           <>
             <div className={styles.core_logout}>
               {(isLoadingTarget || isLoadingAuth) && <CircularProgress />}
@@ -92,6 +95,7 @@ const Header: React.FC = () => {
                   dispatch(resetOpenProfile());
                   dispatch(resetOpenNewTarget());
                   dispatch(resetOpenEditMyTarget());
+                  dispatch(resetIsLoggedIn());
                   // dispatch(resetOpenMypage());
                   alert("logoutしました！")
                 }}

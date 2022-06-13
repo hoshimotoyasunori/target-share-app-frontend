@@ -84,6 +84,7 @@ const NewTarget: React.FC = () => {
     };
     const [showResults, setShowResults] = React.useState(false)
     const openDetail = () => setShowResults(true)
+    const closeDetail = () => setShowResults(false)
 
     return (
         <>
@@ -95,7 +96,7 @@ const NewTarget: React.FC = () => {
                 style={customStyles}
             >
                 <form className={styles.core_signUp}>
-                    <h1 className={styles.core_title}>Setting Target</h1>
+                    <h1 className={styles.core_title}>Targetの設定</h1>
                     <br />
                     <div className={styles.target_container}>
                         { showResults ? 
@@ -950,15 +951,25 @@ const NewTarget: React.FC = () => {
                         :null }
                     </div>
                     <div className={styles.post_container}>
-                        <Button
-                            disabled={!main}
-                            variant="contained"
-                            color="inherit"
-                            onClick={openDetail}
-                        >
-                            { showResults ? 
-                                "戻る" : "詳細の設定"  }
-                        </Button>
+                        { showResults ? 
+                            <Button
+                                disabled={!main}
+                                variant="contained"
+                                color="inherit"
+                                onClick={closeDetail}
+                            >
+                                戻る
+                            </Button>
+                        :
+                            <Button
+                                disabled={!main}
+                                variant="contained"
+                                color="inherit"
+                                onClick={openDetail}
+                            >
+                                詳細の設定
+                            </Button>
+                        }
                         <Button
                             disabled={!main}
                             variant="contained"

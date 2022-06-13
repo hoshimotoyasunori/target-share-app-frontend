@@ -98,6 +98,7 @@ export const authSlice = createSlice({
     initialState:{
         // authSliceの初期値
         isLoadingAuth:false,
+        isLoggedIn:false,
         openSignIn:false,
         openSignUp:false,
         openProfile:false,
@@ -126,6 +127,13 @@ export const authSlice = createSlice({
         },
         fetchCredEnd(state){
             state.isLoadingAuth=false;
+        },
+        // isLoggedInのアクション
+        setIsLoggedIn(state){
+            state.isLoggedIn=true;
+        },
+        resetIsLoggedIn(state){
+            state.isLoggedIn=false;
         },
         // SiginInのアクション
         setOpenSignIn(state){
@@ -164,6 +172,7 @@ export const authSlice = createSlice({
     extraReducers:(builder) =>{
         builder.addCase(fetchAsyncLogin.fulfilled, (state, action) => {
             localStorage.setItem("localJWT", action.payload.access);
+            state.isLoggedIn=true;
         });
         builder.addCase(fetchAsyncCreateProf.fulfilled, (state, action) => {
             state.myprofile = action.payload;
@@ -189,6 +198,9 @@ export const {
     fetchCredStart,
     fetchCredEnd,
 
+    setIsLoggedIn,
+    resetIsLoggedIn,
+
     setOpenSignIn,
     resetOpenSignIn,
 
@@ -206,6 +218,7 @@ export const {
 } = authSlice.actions;
 
 export const selectIsLoadingAuth = (state: RootState) => state.auth.isLoadingAuth;
+export const selectIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
 export const selectOpenSignIn = (state: RootState) => state.auth.openSignIn;
 export const selectOpenSignUp = (state: RootState) => state.auth.openSignUp;
 // プロフィール編集モーダル表示のコントロール

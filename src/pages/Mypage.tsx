@@ -76,6 +76,7 @@ const Mypage: React.FC = () => {
                         dispatch(resetOpenProfile());
                     }}
                 >
+                    <h1 className={styles.newpost}>新規作成</h1>
                     <input type="image" src = {Image} alt="photo" className={styles.image}/>
 
                 </button>

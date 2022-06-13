@@ -8,22 +8,27 @@ import Top from "../../pages/Top";
 
 import {
   selectOpenMypage,
-  selectProfile
+  // selectProfile,
+  selectIsLoggedIn,
 } from "../auth/authSlice";
 import styles from "./Core.module.css"
 
 
 const Core: React.FC = () => {
-  const profile = useSelector(selectProfile);
+  // const profile = useSelector(selectProfile);
   const openMypage = useSelector(selectOpenMypage);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <>
       <Header />
       <main className={styles.main}>
-        { profile?.nickName ? <>{ openMypage ?  <Mypage /> : <Main/>}</>
+      {isLoggedIn && <>{ openMypage ?  <Mypage /> : <Main/>}</>}
+      {!isLoggedIn && <Top />}
+        {/* { profile?.nickName ? <>{ openMypage ?  <Mypage /> : <Main/>}</>
           :<Top/>
-        }
+        } */}
+      
       </main>
     </>
   );

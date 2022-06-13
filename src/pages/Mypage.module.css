@@ -55,6 +55,8 @@
 
 
 .core_btnModal {
+    display: flex;
+    flex-direction: row;
     background-color: transparent;
     color: white;
     padding-top: 3px;
@@ -63,10 +65,15 @@
     cursor: pointer;
 }
 .image{
-    width: 70px;
+    width: 40px;
 }
 .mytarget {
     width: 95%;
     padding: 20px;
 }
 
+.newpost{
+    color: #334F5A;
+    align-items: center;
+    justify-content: center;
+}

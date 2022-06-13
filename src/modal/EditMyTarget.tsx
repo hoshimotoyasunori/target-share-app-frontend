@@ -107,7 +107,7 @@ const EditMyTarget : React.FC = () => {
         <form className={styles.core_signUp}>
           <div className={styles.auth_progress}>
           </div>
-          <h1 className={styles.core_title}>Edit Target</h1>
+          <h1 className={styles.core_title}>Targetの編集</h1>
           {isLoadingAuth && <CircularProgress />}
           <br />
           <div className={styles.target_container}>
@@ -974,7 +974,7 @@ const EditMyTarget : React.FC = () => {
             type="submit"
             onClick={updateMyTarget}
           >
-            Update
+            更新
           </Button>
         </form>
       </Modal>

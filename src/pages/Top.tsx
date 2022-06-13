@@ -61,7 +61,7 @@ const Top: React.FC = () => {
                                 dispatch(resetOpenSignUp());
                             }}
                         >
-                        LogIn
+                        ログイン
                         </Button>
                         <Button
                             className={classes.signup}
@@ -70,7 +70,7 @@ const Top: React.FC = () => {
                                 dispatch(resetOpenSignIn());
                             }}
                         >
-                        SignUp
+                        新規登録
                         </Button>
                     </div>
                 </div>

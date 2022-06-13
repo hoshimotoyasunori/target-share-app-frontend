@@ -68,14 +68,14 @@ const EditProfile: React.FC = () => {
         style={customStyles}
       >
         <form className={styles.core_signUp}>
-          <h1 className={styles.core_title}>Edit Profile</h1>
+          <h1 className={styles.core_title}>プロフィールの編集</h1>
 
           <br />
           <TextField
-            placeholder="nickname"
+            placeholder="アカウント名"
             type="text"
             value={profile?.nickName}
-            inputProps={{style: {fontSize: '12px'} }} label="ニックネーム"
+            inputProps={{style: {fontSize: '12px'} }} label="アカウント名"
             onChange={(e) => dispatch(editNickName(e.target.value))}
           />
 
@@ -87,7 +87,7 @@ const EditProfile: React.FC = () => {
           />
           <br />
           <IconButton onClick={handlerEditPicture}>
-            <MdAddAPhoto />
+            アバター画像<MdAddAPhoto />
           </IconButton>
           <br />
           <Button
@@ -97,7 +97,7 @@ const EditProfile: React.FC = () => {
             type="submit"
             onClick={updateProfile}
           >
-            Update
+            更新
           </Button>
         </form>
       </Modal>

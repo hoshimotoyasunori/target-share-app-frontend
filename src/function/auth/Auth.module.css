@@ -4,24 +4,25 @@
     text-align: center;
 }
 .auth_error {
-color: #ff00ff;
-text-align: center;
-margin: 10px;
+    color: #ff00ff;
+    text-align: center;
+    margin: 10px;
 }
 .auth_signUp {
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .auth_headerImage {
-object-fit: contain;
+    object-fit: contain;
 }
 .auth_text {
-color: rgb(6, 153, 211);
-text-align: center;
-cursor: pointer;
+    color: rgb(6, 153, 211);
+    text-align: center;
+    cursor: pointer;
+    font-size: small;
 }
 .auth_progress {
-margin-top: 15px;
-display: flex;
-justify-content: center;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
 }

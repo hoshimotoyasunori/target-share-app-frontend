@@ -75,8 +75,8 @@ const Auth: React.FC = () => {
           onSubmit={async (values) => {
             await dispatch(fetchCredStart());
             const resultReg = await dispatch(fetchAsyncRegister(values));
-            console.log(values)
-            console.log(resultReg)
+            // console.log(values)
+            // console.log(resultReg)
             if (fetchAsyncRegister.fulfilled.match(resultReg)) {
               await dispatch(fetchAsyncLogin(values));
               await dispatch(fetchAsyncCreateProf({ nickName: "anonymous",userProfile:resultReg.payload.id}));
@@ -109,7 +109,7 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  <h1 className={styles.auth_title}>Sign Up</h1>
+                  <h1 className={styles.auth_title}>新規登録</h1>
                   <br />
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}
@@ -149,7 +149,7 @@ const Auth: React.FC = () => {
                     disabled={!isValid}
                     type="submit"
                   >
-                    Register
+                    登録
                   </Button>
                   <br />
                   <br />
@@ -160,7 +160,7 @@ const Auth: React.FC = () => {
                       await dispatch(resetOpenSignUp());
                     }}
                   >
-                    You already have a account ?
+                    すでにアカウントをお持ちの方はこちら
                   </span>
                 </div>
               </form>
@@ -213,7 +213,7 @@ const Auth: React.FC = () => {
             <div>
               <form onSubmit={handleSubmit}>
                 <div className={styles.auth_signUp}>
-                  <h1 className={styles.auth_title}>Log In</h1>
+                  <h1 className={styles.auth_title}>ログイン</h1>
                   <br />
                   <div className={styles.auth_progress}>
                     {isLoadingAuth && <CircularProgress />}
@@ -253,7 +253,7 @@ const Auth: React.FC = () => {
                     disabled={!isValid}
                     type="submit"
                   >
-                    Login
+                    ログイン
                   </Button>
                   <br />
                   <br />
@@ -264,7 +264,7 @@ const Auth: React.FC = () => {
                       await dispatch(setOpenSignUp());
                     }}
                   >
-                    You don't have a account ?
+                    アカウントをまだ持っていない方はこちら
                   </span>
                 </div>
               </form>

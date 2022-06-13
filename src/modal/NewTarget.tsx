@@ -957,7 +957,7 @@ const NewTarget: React.FC = () => {
                             onClick={openDetail}
                         >
                             { showResults ? 
-                                "Close Detail" : "Edit Detail"  }
+                                "戻る" : "詳細の設定"  }
                         </Button>
                         <Button
                             disabled={!main}
@@ -965,7 +965,7 @@ const NewTarget: React.FC = () => {
                             color="primary"
                             onClick={newTarget}
                         >
-                            New post
+                            新規作成
                         </Button>
                     </div>
                 </form>

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector} from "react-redux";
 
 import Header from "./Header";
+import Footer from "./Footer";
 import Main from "../../pages/Main";
 import Mypage from "../../pages/Mypage";
 import Top from "../../pages/Top";
@@ -30,6 +31,7 @@ const Core: React.FC = () => {
         } */}
       
       </main>
+      <Footer />
     </>
   );
 };

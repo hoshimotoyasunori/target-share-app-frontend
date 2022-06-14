@@ -11,7 +11,10 @@ import {
   selectIsLoggedIn,
   resetIsLoggedIn,
   //Reducer
+  setOpenSignIn,
   resetOpenSignIn,
+  setOpenSignUp,
+  resetOpenSignUp,
   setOpenMypage,
   resetOpenMypage,
   resetOpenProfile,
@@ -37,6 +40,8 @@ import Auth from "../auth/Auth";
 import HomeIcon from '../../public/home.png';
 import MenIcon from '../../public/men.png';
 import LogoutIcon from '../../public/logout.png';
+import LogInIcon from '../../public/login.png';
+import RegisterIcon from '../../public/register.png';
 
 
 const Footer: React.FC = () => {
@@ -74,44 +79,27 @@ const Footer: React.FC = () => {
             {!isLoggedIn ? 
                 <div className={styles.core_logout}>
                     <Button
-                        disabled
+                        className={styles.auth}
                         onClick={() => {
-                        dispatch(resetOpenMypage());
-                        dispatch(resetOpenEditMyTarget());
+                            dispatch(setOpenSignIn());
+                            dispatch(resetOpenSignUp());
                         }}
                     >
-                        <div className={`${styles.iconbox} ${styles.opacity}`}>
-                            <input type="image" src = {HomeIcon} alt="home" className={styles.image}/>
-                            <p>Home</p>
+                        <div className={styles.iconbox}>
+                            <input type="image" src = {LogInIcon} alt="login" className={styles.image}/>
+                            <p>ログイン</p>
                         </div>
                     </Button>
                     <Button
-                        disabled
+                        className={styles.auth}
                         onClick={() => {
-                        dispatch(setOpenMypage());
-                        dispatch(resetOpenEditMyTarget());
+                            dispatch(setOpenSignUp());
+                            dispatch(resetOpenSignIn());
                         }}
                     >
-                        <div className={`${styles.iconbox} ${styles.opacity}`}>
-                            <input type="image" src = {MenIcon} alt="men" className={styles.image}/>
-                            <p>Mypage</p>
-                        </div>
-                    </Button>
-                    <Button
-                        disabled
-                        onClick={() => {
-                        localStorage.removeItem("localJWT");
-                        dispatch(editNickName(""));
-                        dispatch(resetOpenProfile());
-                        dispatch(resetOpenNewTarget());
-                        dispatch(resetOpenEditMyTarget());
-                        dispatch(resetIsLoggedIn());
-                        alert("logoutしました！")
-                        }}
-                    >
-                        <div className={`${styles.iconbox} ${styles.opacity}`}>
-                            <input type="image" src = {LogoutIcon} alt="logout" className={styles.image}/>
-                            <p>Logout</p>
+                        <div className={styles.iconbox}>
+                            <input type="image" src = {RegisterIcon} alt="signup" className={styles.image}/>
+                            <p>新規登録</p>
                         </div>
                     </Button>
                 </div>

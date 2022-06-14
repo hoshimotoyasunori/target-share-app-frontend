@@ -53,26 +53,6 @@ const Top: React.FC = () => {
                     <h1 className={styles.text}>明確なターゲットの設定で</h1>
                     <h1 className={styles.text}>最高の人生を創る</h1>
                     <p className={styles.text}>~ もう迷わない ~</p>
-                    {/* <div className={styles.button_box}>
-                        <Button
-                            className={classes.login}
-                            onClick={() => {
-                                dispatch(setOpenSignIn());
-                                dispatch(resetOpenSignUp());
-                            }}
-                        >
-                        ログイン
-                        </Button>
-                        <Button
-                            className={classes.signup}
-                            onClick={() => {
-                                dispatch(setOpenSignUp());
-                                dispatch(resetOpenSignIn());
-                            }}
-                        >
-                        新規登録
-                        </Button>
-                    </div> */}
                 </div>
                 <div className={styles.image_box}>
                     <input type="image" src = {Image} alt="photo" className={styles.image}/>

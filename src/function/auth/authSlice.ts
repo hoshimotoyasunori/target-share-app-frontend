@@ -129,12 +129,12 @@ export const authSlice = createSlice({
             state.isLoadingAuth=false;
         },
         // isLoggedInのアクション
-        setIsLoggedIn(state){
-            state.isLoggedIn=true;
-        },
-        resetIsLoggedIn(state){
-            state.isLoggedIn=false;
-        },
+        // setIsLoggedIn(state){
+        //     state.isLoggedIn=true;
+        // },
+        // resetIsLoggedIn(state){
+        //     state.isLoggedIn=false;
+        // },
         // SiginInのアクション
         setOpenSignIn(state){
             state.openSignIn=true;
@@ -167,6 +167,9 @@ export const authSlice = createSlice({
         editNickName(state,action){
             state.myprofile.nickName = action.payload;
         },
+        editId(state,action){
+            state.myprofile.id = action.payload;
+        },
     },
 
     extraReducers:(builder) =>{
@@ -198,8 +201,8 @@ export const {
     fetchCredStart,
     fetchCredEnd,
 
-    setIsLoggedIn,
-    resetIsLoggedIn,
+    // setIsLoggedIn,
+    // resetIsLoggedIn,
 
     setOpenSignIn,
     resetOpenSignIn,
@@ -214,6 +217,7 @@ export const {
     resetOpenMypage,
 
     editNickName,
+    editId,
 
 } = authSlice.actions;
 

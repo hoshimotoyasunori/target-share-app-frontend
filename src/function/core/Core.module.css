@@ -35,6 +35,7 @@ p{
   background-image: url(../../public/cloud.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 80px;
 }
 .core_btnModal {
   background-color: transparent;

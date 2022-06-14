@@ -75,12 +75,9 @@ const Auth: React.FC = () => {
           onSubmit={async (values) => {
             await dispatch(fetchCredStart());
             const resultReg = await dispatch(fetchAsyncRegister(values));
-            // console.log(values)
-            // console.log(resultReg)
             if (fetchAsyncRegister.fulfilled.match(resultReg)) {
               await dispatch(fetchAsyncLogin(values));
-              await dispatch(fetchAsyncCreateProf({ nickName: "anonymous",userProfile:resultReg.payload.id}));
-
+              await dispatch(fetchAsyncCreateProf({ nickName: "nickName",userProfile:resultReg.payload.id}));
               await dispatch(fetchAsyncGetProfs());
               await dispatch(fetchAsyncGetTargets());
               await dispatch(fetchAsyncGetComments());

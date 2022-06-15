@@ -60,6 +60,9 @@ const Target: React.FC<PROPS_TARGET> = ({
     return prof.userProfile === userTarget;
   });
 
+  // console.log("prof情報")
+  // console.log(prof)
+  // console.log("-------")
   const postComment = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     const packet = { text: text, target: id };

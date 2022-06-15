@@ -49,6 +49,7 @@ const Mytarget: React.FC<PROPS_TARGET> = ({
     todo8_1,todo8_2,todo8_3,todo8_4,todo8_6,todo8_7,todo8_8,todo8_9,
     todo9_1,todo9_2,todo9_3,todo9_4,todo9_6,todo9_7,todo9_8,todo9_9,
   }
+  
   if (main) {
     return (
       <div className={styles.prof_container}>

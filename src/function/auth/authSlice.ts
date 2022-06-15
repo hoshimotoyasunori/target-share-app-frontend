@@ -54,7 +54,7 @@ export const fetchAsyncUpdateProf = createAsyncThunk(
             `${apiUrl}api/profile/${profile.id}/`,
             {
                 uploadData,
-                "userProfile":profile.id,
+                "userProfile":profile.userProfile,
                 "nickName":profile.nickName,
             },
             {

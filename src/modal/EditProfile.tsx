@@ -45,8 +45,9 @@ const EditProfile: React.FC = () => {
 
   const updateProfile = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    const packet = { id: profile.id, nickName: profile.nickName, img: image };
-
+    const packet = { id: profile.id, nickName: profile.nickName,userProfile:profile.userProfile, img: image };
+    console.log("packet")
+    console.log(packet)
     await dispatch(fetchCredStart());
     await dispatch(fetchAsyncUpdateProf(packet));
     await dispatch(fetchCredEnd());

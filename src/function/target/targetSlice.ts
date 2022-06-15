@@ -223,6 +223,225 @@ export const targetSlice = createSlice({
     selectEditMyTarget(state,action){
       state.edit_mytarget = action.payload;
     },
+    editMain(state,action){
+      state.edit_mytarget.main = action.payload;
+    },
+    editSub1(state,action){
+      state.edit_mytarget.sub1 = action.payload;
+    },
+    editSub2(state,action){
+      state.edit_mytarget.sub2 = action.payload;
+    },
+    editSub3(state,action){
+      state.edit_mytarget.sub3 = action.payload;
+    },
+    editSub4(state,action){
+      state.edit_mytarget.sub4 = action.payload;
+    },
+    editSub6(state,action){
+      state.edit_mytarget.sub6 = action.payload;
+    },
+    editSub7(state,action){
+      state.edit_mytarget.sub7 = action.payload;
+    },
+    editSub8(state,action){
+      state.edit_mytarget.sub8 = action.payload;
+    },
+    editSub9(state,action){
+      state.edit_mytarget.sub9 = action.payload;
+    },
+    editTodo1_1(state,action){
+      state.edit_mytarget.todo1_1 = action.payload;
+    },
+    editTodo1_2(state,action){
+      state.edit_mytarget.todo1_2 = action.payload;
+    },
+    editTodo1_3(state,action){
+      state.edit_mytarget.todo1_3 = action.payload;
+    },
+    editTodo1_4(state,action){
+      state.edit_mytarget.todo1_4 = action.payload;
+    },
+    editTodo1_6(state,action){
+      state.edit_mytarget.todo1_6 = action.payload;
+    },
+    editTodo1_7(state,action){
+      state.edit_mytarget.todo1_7 = action.payload;
+    },
+    editTodo1_8(state,action){
+      state.edit_mytarget.todo1_8 = action.payload;
+    },
+    editTodo1_9(state,action){
+      state.edit_mytarget.todo1_9 = action.payload;
+    },
+    editTodo2_1(state,action){
+      state.edit_mytarget.todo2_1 = action.payload;
+    },
+    editTodo2_2(state,action){
+      state.edit_mytarget.todo2_2 = action.payload;
+    },
+    editTodo2_3(state,action){
+      state.edit_mytarget.todo2_3 = action.payload;
+    },
+    editTodo2_4(state,action){
+      state.edit_mytarget.todo2_4 = action.payload;
+    },
+    editTodo2_6(state,action){
+      state.edit_mytarget.todo2_6 = action.payload;
+    },
+    editTodo2_7(state,action){
+      state.edit_mytarget.todo2_7 = action.payload;
+    },
+    editTodo2_8(state,action){
+      state.edit_mytarget.todo2_8 = action.payload;
+    },
+    editTodo2_9(state,action){
+      state.edit_mytarget.todo2_9 = action.payload;
+    },
+    editTodo3_1(state,action){
+      state.edit_mytarget.todo3_1 = action.payload;
+    },
+    editTodo3_2(state,action){
+      state.edit_mytarget.todo3_2 = action.payload;
+    },
+    editTodo3_3(state,action){
+      state.edit_mytarget.todo3_3 = action.payload;
+    },
+    editTodo3_4(state,action){
+      state.edit_mytarget.todo3_4 = action.payload;
+    },
+    editTodo3_6(state,action){
+      state.edit_mytarget.todo3_6 = action.payload;
+    },
+    editTodo3_7(state,action){
+      state.edit_mytarget.todo3_7 = action.payload;
+    },
+    editTodo3_8(state,action){
+      state.edit_mytarget.todo3_8 = action.payload;
+    },
+    editTodo3_9(state,action){
+      state.edit_mytarget.todo3_9 = action.payload;
+    },
+    editTodo4_1(state,action){
+      state.edit_mytarget.todo4_1 = action.payload;
+    },
+    editTodo4_2(state,action){
+      state.edit_mytarget.todo4_2 = action.payload;
+    },
+    editTodo4_3(state,action){
+      state.edit_mytarget.todo4_3 = action.payload;
+    },
+    editTodo4_4(state,action){
+      state.edit_mytarget.todo4_4 = action.payload;
+    },
+    editTodo4_6(state,action){
+      state.edit_mytarget.todo4_6 = action.payload;
+    },
+    editTodo4_7(state,action){
+      state.edit_mytarget.todo4_7 = action.payload;
+    },
+    editTodo4_8(state,action){
+      state.edit_mytarget.todo4_8 = action.payload;
+    },
+    editTodo4_9(state,action){
+      state.edit_mytarget.todo4_9 = action.payload;
+    },
+    editTodo6_1(state,action){
+      state.edit_mytarget.todo6_1 = action.payload;
+    },
+    editTodo6_2(state,action){
+      state.edit_mytarget.todo6_2 = action.payload;
+    },
+    editTodo6_3(state,action){
+      state.edit_mytarget.todo6_3 = action.payload;
+    },
+    editTodo6_4(state,action){
+      state.edit_mytarget.todo6_4 = action.payload;
+    },
+    editTodo6_6(state,action){
+      state.edit_mytarget.todo6_6 = action.payload;
+    },
+    editTodo6_7(state,action){
+      state.edit_mytarget.todo6_7 = action.payload;
+    },
+    editTodo6_8(state,action){
+      state.edit_mytarget.todo6_8 = action.payload;
+    },
+    editTodo6_9(state,action){
+      state.edit_mytarget.todo6_9 = action.payload;
+    },
+    editTodo7_1(state,action){
+      state.edit_mytarget.todo7_1 = action.payload;
+    },
+    editTodo7_2(state,action){
+      state.edit_mytarget.todo7_2 = action.payload;
+    },
+    editTodo7_3(state,action){
+      state.edit_mytarget.todo7_3 = action.payload;
+    },
+    editTodo7_4(state,action){
+      state.edit_mytarget.todo7_4 = action.payload;
+    },
+    editTodo7_6(state,action){
+      state.edit_mytarget.todo7_6 = action.payload;
+    },
+    editTodo7_7(state,action){
+      state.edit_mytarget.todo7_7 = action.payload;
+    },
+    editTodo7_8(state,action){
+      state.edit_mytarget.todo7_8 = action.payload;
+    },
+    editTodo7_9(state,action){
+      state.edit_mytarget.todo7_9 = action.payload;
+    },
+    editTodo8_1(state,action){
+      state.edit_mytarget.todo8_1 = action.payload;
+    },
+    editTodo8_2(state,action){
+      state.edit_mytarget.todo8_2 = action.payload;
+    },
+    editTodo8_3(state,action){
+      state.edit_mytarget.todo8_3 = action.payload;
+    },
+    editTodo8_4(state,action){
+      state.edit_mytarget.todo8_4 = action.payload;
+    },
+    editTodo8_6(state,action){
+      state.edit_mytarget.todo8_6 = action.payload;
+    },
+    editTodo8_7(state,action){
+      state.edit_mytarget.todo8_7 = action.payload;
+    },
+    editTodo8_8(state,action){
+      state.edit_mytarget.todo8_8 = action.payload;
+    },
+    editTodo8_9(state,action){
+      state.edit_mytarget.todo8_9 = action.payload;
+    },
+    editTodo9_1(state,action){
+      state.edit_mytarget.todo9_1 = action.payload;
+    },
+    editTodo9_2(state,action){
+      state.edit_mytarget.todo9_2 = action.payload;
+    },
+    editTodo9_3(state,action){
+      state.edit_mytarget.todo9_3 = action.payload;
+    },
+    editTodo9_4(state,action){
+      state.edit_mytarget.todo9_4 = action.payload;
+    },
+    editTodo9_6(state,action){
+      state.edit_mytarget.todo9_6 = action.payload;
+    },
+    editTodo9_7(state,action){
+      state.edit_mytarget.todo9_7 = action.payload;
+    },
+    editTodo9_8(state,action){
+      state.edit_mytarget.todo9_8 = action.payload;
+    },
+    editTodo9_9(state,action){
+      state.edit_mytarget.todo9_9 = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAsyncGetTargets.fulfilled, (state, action) => {
@@ -292,16 +511,16 @@ export const {
   setOpenEditMyTarget,
   resetOpenEditMyTarget,
   selectEditMyTarget,
-  // editMain,
-  // editSub1,editSub2,editSub3,editSub4,editSub6,editSub7,editSub8,editSub9,
-  // editTodo1_1,editTodo1_2,editTodo1_3,editTodo1_4,editTodo1_6,editTodo1_7,editTodo1_8,editTodo1_9,
-  // editTodo2_1,editTodo2_2,editTodo2_3,editTodo2_4,editTodo2_6,editTodo2_7,editTodo2_8,editTodo2_9,
-  // editTodo3_1,editTodo3_2,editTodo3_3,editTodo3_4,editTodo3_6,editTodo3_7,editTodo3_8,editTodo3_9,
-  // editTodo4_1,editTodo4_2,editTodo4_3,editTodo4_4,editTodo4_6,editTodo4_7,editTodo4_8,editTodo4_9,
-  // editTodo6_1,editTodo6_2,editTodo6_3,editTodo6_4,editTodo6_6,editTodo6_7,editTodo6_8,editTodo6_9,
-  // editTodo7_1,editTodo7_2,editTodo7_3,editTodo7_4,editTodo7_6,editTodo7_7,editTodo7_8,editTodo7_9,
-  // editTodo8_1,editTodo8_2,editTodo8_3,editTodo8_4,editTodo8_6,editTodo8_7,editTodo8_8,editTodo8_9,
-  // editTodo9_1,editTodo9_2,editTodo9_3,editTodo9_4,editTodo9_6,editTodo9_7,editTodo9_8,editTodo9_9,
+  editMain,
+  editSub1,editSub2,editSub3,editSub4,editSub6,editSub7,editSub8,editSub9,
+  editTodo1_1,editTodo1_2,editTodo1_3,editTodo1_4,editTodo1_6,editTodo1_7,editTodo1_8,editTodo1_9,
+  editTodo2_1,editTodo2_2,editTodo2_3,editTodo2_4,editTodo2_6,editTodo2_7,editTodo2_8,editTodo2_9,
+  editTodo3_1,editTodo3_2,editTodo3_3,editTodo3_4,editTodo3_6,editTodo3_7,editTodo3_8,editTodo3_9,
+  editTodo4_1,editTodo4_2,editTodo4_3,editTodo4_4,editTodo4_6,editTodo4_7,editTodo4_8,editTodo4_9,
+  editTodo6_1,editTodo6_2,editTodo6_3,editTodo6_4,editTodo6_6,editTodo6_7,editTodo6_8,editTodo6_9,
+  editTodo7_1,editTodo7_2,editTodo7_3,editTodo7_4,editTodo7_6,editTodo7_7,editTodo7_8,editTodo7_9,
+  editTodo8_1,editTodo8_2,editTodo8_3,editTodo8_4,editTodo8_6,editTodo8_7,editTodo8_8,editTodo8_9,
+  editTodo9_1,editTodo9_2,editTodo9_3,editTodo9_4,editTodo9_6,editTodo9_7,editTodo9_8,editTodo9_9,
 } = targetSlice.actions;
 
 export const selectIsLoadingTarget = (state: RootState) => state.target.isLoadingTarget;

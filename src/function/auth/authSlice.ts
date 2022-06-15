@@ -49,7 +49,7 @@ export const fetchAsyncUpdateProf = createAsyncThunk(
         const uploadData = new FormData();
         // uploadData.append("nickName", profile.nickName);
         profile.img && uploadData.append("img", profile.img, profile.img.name);
-        console.log(uploadData)
+        // console.log(uploadData)
         const res = await axios.put(
             `${apiUrl}api/profile/${profile.id}/`,
             {

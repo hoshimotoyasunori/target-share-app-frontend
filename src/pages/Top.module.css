@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 170px);
     /* background-image:url(../public/goal.jpeg);
     background-position:50%;
     background-repeat:no-repeat;
@@ -14,7 +14,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 170px);
     width: 100%;
 }
 .auth_box{

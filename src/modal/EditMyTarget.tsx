@@ -36,11 +36,11 @@ import styles from "../function/core/Core.module.css";
 
 const customStyles = {
   content: {
-    top: "57%",
+    top: "50%",
     left: "50%",
 
     width: "85%",
-    height: "80%",
+    height: "70%",
     padding: "10px",
 
     transform: "translate(-50%, -50%)",
@@ -109,7 +109,7 @@ const EditMyTarget : React.FC = () => {
         style={customStyles} 
       >
         <br/>
-        <h4>※現在、過去記入データを反映できないようになっております。編集するには再度記入いただく必要があります。</h4>
+        {/* <h4>※現在、過去記入データを反映できないようになっております。編集するには再度記入いただく必要があります。</h4> */}
         <Button
           variant="contained"
           color="primary"

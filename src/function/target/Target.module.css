@@ -124,6 +124,7 @@
     font-size: .6rem;
     overflow-wrap: break-word;
     background-color: aliceblue;
+    margin: 0.5px;
 }
 .box1{
     background-color: #fffd99;

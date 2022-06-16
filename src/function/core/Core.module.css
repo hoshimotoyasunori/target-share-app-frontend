@@ -72,6 +72,7 @@ p{
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
+  width: 100%;
   /* width: calc(90%/3); */
 }
 .post_container Button{

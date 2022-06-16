@@ -5,6 +5,8 @@
 }
 .core_signUp {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 p{

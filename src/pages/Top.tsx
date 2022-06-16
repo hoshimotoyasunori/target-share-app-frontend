@@ -1,49 +1,10 @@
 import React from "react";
 
-// import {Button} from "@material-ui/core";
-// import { useDispatch } from "react-redux";
-// import { AppDispatch } from "../app/store";
 import styles from "./Top.module.css";
-// import { makeStyles } from "@material-ui/core/styles";
 
-// import Image from "next/image";
 import Image from '../public/mac.png';
 
-// import {
-//     setOpenSignIn,
-//     resetOpenSignIn,
-//     setOpenSignUp,
-//     resetOpenSignUp,
-// } from "../function/auth/authSlice";
-
-// const useStyles = makeStyles((theme) => ({
-//     login: {
-//         width: "150px",
-//         height: "40px",
-//         margin:"10px",
-//         color:"white",
-//         backgroundColor:"blue",
-//         "&:hover": {
-//             background: "#00FFFF",
-//             color:"#334F5A"
-//         },
-//     },
-//     signup: {
-//         width: "150px",
-//         height: "40px",
-//         margin:"10px",
-//         color:"white",
-//         backgroundColor:"orange",
-//         "&:hover": {
-//             background: "#FFFF00",
-//             color:"#334F5A"
-//         },
-//     },
-// }));
-
 const Top: React.FC = () => {
-    // const dispatch: AppDispatch = useDispatch();
-    // const classes = useStyles();
 
     return (
         <div className={styles.container}>

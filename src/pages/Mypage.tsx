@@ -44,7 +44,6 @@ const Mypage: React.FC = () => {
     return (
         <>
             <EditProfile />
-            {/* <EditMyTarget /> */}
             <NewTarget />
             <div className={styles.mypage_container}>
                 <div className={styles.profile} >

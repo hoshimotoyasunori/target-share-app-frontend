@@ -93,7 +93,7 @@ const NewTarget: React.FC = () => {
                 }}
                 style={customStyles}
             >
-                <form className={styles.core_signUp}>
+                <form className={styles.core_container}>
                     <h1 className={styles.core_title}>Targetの設定</h1>
                     <br />
                     <div className={styles.target_container}>

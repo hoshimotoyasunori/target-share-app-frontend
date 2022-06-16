@@ -119,7 +119,7 @@ const EditMyTarget : React.FC = () => {
         >
           閉じる
         </Button>
-        <form className={styles.core_signUp}>
+        <form className={styles.core_container}>
           <div className={styles.auth_progress}>
           </div>
           <h1 className={styles.core_title}>Targetの編集</h1>

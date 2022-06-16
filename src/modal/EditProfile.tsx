@@ -68,7 +68,7 @@ const EditProfile: React.FC = () => {
         }}
         style={customStyles}
       >
-        <form className={styles.core_signUp}>
+        <form className={styles.core_container}>
           <h1 className={styles.core_title}>プロフィールの編集</h1>
 
           <br />

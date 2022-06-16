@@ -39,7 +39,7 @@ const customStyles = {
     top: "57%",
     left: "50%",
 
-    width: "90%",
+    width: "85%",
     height: "80%",
     padding: "10px",
 

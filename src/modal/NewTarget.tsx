@@ -23,19 +23,17 @@ import { Button, TextField } from "@material-ui/core";
 
 const customStyles = {
   content: {
-    top: "57%",
+    top: "50%",
     left: "50%",
 
-    width: "90%",
-    height: "80%",
+    width: "850%",
+    height: "60%",
     padding: "10px",
 
     transform: "translate(-50%, -50%)",
   },
 };
-// type Props = {
-//     visible: boolean;
-//   };
+
 
 const NewTarget: React.FC = () => {
 

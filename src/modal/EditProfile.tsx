@@ -26,13 +26,13 @@ import { MdAddAPhoto } from "react-icons/md";
 
 const customStyles = {
   content: {
-    top: "55%",
+    top: "50%",
     left: "50%",
 
-    width: 280,
-    height: 220,
-    padding: "50px",
-
+    width: "300px",
+    height: "35%",
+    padding: "20px",
+    display: "flex",
     transform: "translate(-50%, -50%)",
   },
 };

@@ -120,6 +120,7 @@
     width: 110px;
     height: 110px;
     border: solid .5px #4682b4;
+    border-radius: 20%;
     font-size: .6rem;
     overflow-wrap: break-word;
     /* background-color: rgb(255, 174, 127); */

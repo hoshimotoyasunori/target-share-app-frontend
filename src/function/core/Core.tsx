@@ -9,6 +9,7 @@ import Main from "../../pages/Main";
 import Mypage from "../../pages/Mypage";
 import Top from "../../pages/Top";
 import Auth from "../auth/Auth";
+
 import HomeIcon from '../../public/home.png';
 import MenIcon from '../../public/men.png';
 import LogoutIcon from '../../public/logout.png';

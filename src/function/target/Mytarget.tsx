@@ -37,6 +37,7 @@ const Mytarget: React.FC<PROPS_TARGET> = ({
   todo9_1,todo9_2,todo9_3,todo9_4,todo9_6,todo9_7,todo9_8,todo9_9,
 }) => {
   const profile = useSelector(selectProfile);
+  console.log(profile.img)
   const dispatch: AppDispatch = useDispatch();
   const packet = {
     id,main,sub1,sub2,sub3,sub4,sub6,sub7,sub8,sub9,

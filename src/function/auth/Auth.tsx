@@ -40,11 +40,11 @@ const customStyles = {
     backgroundColor: "#777777",
   },
   content: {
-    top: "55%",
+    top: "50%",
     left: "50%",
 
-    width: 280,
-    height: 350,
+    width: 300,
+    height: 380,
     padding: "50px",
 
     transform: "translate(-50%, -50%)",

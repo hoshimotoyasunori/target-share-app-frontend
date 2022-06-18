@@ -24,13 +24,14 @@ const Top: React.FC = () => {
                     <input type="image" src = {Image} alt="photo" className={styles.image}/>
                 </div>
             </div>
-            <div className={styles.wrap}>
+            <div className={styles.wrap} >
+            {/* <div className={`${styles.wrap} ${styles.paused}`} > */}
                 <ul className={styles.target}>
                     {Data
                         .slice(0)
                         // .reverse()
                         .map((data) => (
-                            <li key={data.id} className={styles.target_container} >
+                            <li key={data.id} className={`${styles.target_container} ${styles.content_hover}`} >
                                 <div className={styles.target_box}>
                                     <div className={styles.card}>
                                         <div className={styles.itembox}>
@@ -199,7 +200,7 @@ const Top: React.FC = () => {
                         .slice(0)
                         // .reverse()
                         .map((data) => (
-                            <li key={data.id} className={styles.target_container} >
+                            <li key={data.id} className={`${styles.target_container} ${styles.content_hover}`}>
                                 <div className={styles.target_box}>
                                     <div className={styles.card}>
                                         <div className={styles.itembox}>
